@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Áhlan — Portfolio</title>
+<link href="https://fonts.cdnfonts.com/css/pixel-operator" rel="stylesheet">
+<link rel="stylesheet" href="css/stylecomp.css">
+</head>
+<body>
+
+<body class="crt ">
+
+
+<div id="boot">
+    <div class="boot-window">
+        <pre>
+Pelk v1.0 (build 2402)
+------------------------------------
+Checking system memory... OK
+Loading UI drivers..... OK
+Mounting user space.... OK
+Starting Ahlan Desktop.. OK
+
+Welcome to Pelk.
+For the best experience, view the portfolio on PC, tablet or laptop.
+
+[ PRESS ENTER TO START ]
+        </pre>
+    </div>
+</div>
+
+<div id="desktop" class="hidden">
+
+    <div class="icon" onclick="openWindow('about')">
+        <img src="https://icons.iconarchive.com/icons/papirus-team/papirus-apps/64/system-users-icon.png">
+        <p>About Me</p>
+    </div>
+
+    <div class="icon" onclick="openWindow('projects')">
+        <img src="https://icons.iconarchive.com/icons/papirus-team/papirus-apps/64/system-file-manager-icon.png">
+        <p>Projects</p>
+    </div>
+
+    <div class="icon" onclick="openWindow('contact')">
+        <img src="https://icons.iconarchive.com/icons/papirus-team/papirus-devices/64/smartphone-icon.png">
+        <p>Contact</p>
+    </div>
+
+    <div class="icon" onclick="openWindow('terminal')">
+        <img src="https://icons.iconarchive.com/icons/papirus-team/papirus-apps/64/utilities-terminal-icon.png">
+        <p>Terminal</p>
+    </div>
+</div>
+
+<div class="window" id="about">
+    <div class="title-bar" onmousedown="drag(event,'about')">
+        <span>About.ahlan</span>
+        <div class="controls">
+            <button onclick="minimize('about')">_</button>
+            <button onclick="maximize('about')">□</button>
+            <button onclick="closeWindow('about')">X</button>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2>About Me</h2>
+        <p>Hello, I'm <b>Áhlan Santos</b>, a 14-year-old developer passionate about software, low-level systems, engines, C/C++, retro interfaces and digital creativity.</p>
+        <p>I love building things that feel like operating systems. Minimal, aesthetic and technical.</p>
+        <p>See my projects on "Projects"!</p>
+
+        <h3>A bit skilled on:</h3>
+        <ul>
+            <li>C / C++</li>
+            <li>Kotlin / Java</li>
+            <li>Python</li>
+            <li>JavaScript</li>
+            <li>Unreal Engine & Godot</li>
+            <li>Linux systems</li>
+            <li>English fluent</li>
+        </ul>
+    </div>
+</div>
+
+<div class="window" id="projects">
+    <div class="title-bar" onmousedown="drag(event,'projects')">
+        <span>Home/Projects</span>
+        <div class="controls">
+            <button onclick="minimize('projects')">_</button>
+            <button onclick="maximize('projects')">□</button>
+            <button onclick="closeWindow('projects')">X</button>
+        </div>
+    </div>
+
+    <div class="content">
+
+        <div class="proj">
+            <b>Kelp Browser</b><br>
+            Minimal macOS browser built in Electron.<br>
+            <a target="_blank" href="https://github.com/ahlansantos/kelp-browser-mac">GitHub</a>
+        </div>
+
+        <div class="proj">
+            <b>A Liminal Place (Remastered)</b><br>
+            First published game, surreal and liminal.<br>
+            <a target="_blank" href="https://store.steampowered.com/app/2730180">Steam</a>
+        </div>
+
+        <div class="proj">
+            <b>The Solitude Project</b><br>
+            Atmospheric psychological liminal experience.<br>
+            <a target="_blank" href="https://store.steampowered.com/app/3452280">Steam</a>
+        </div>
+
+        <div class="proj">
+            <b>Limine</b><br>
+            Final game in the liminal trilogy.<br>
+            <a target="_blank" href="https://discord.gg/ZdyamJxU7M">Discord</a>
+        </div>
+
+        <div class="proj">
+            <b>TermyShell</b><br>
+            Local shell terminal (Kotlin/Java).<br>
+            <a target="_blank" href="https://github.com/ahlansantos/termyshell">GitHub</a>
+        </div>
+
+        <div class="proj">
+            <b>Yetify</b><br>
+            Minimal Spotify alternative focusing on Ye/Kanye songs.<br>
+            <a target="_blank" href="https://github.com/ahlansantos/yetify">GitHub</a>
+        </div>
+
+    </div>
+</div>
+
+<div class="window" id="contact">
+    <div class="title-bar" onmousedown="drag(event,'contact')">
+        <span>Contact.info</span>
+        <div class="controls">
+            <button onclick="minimize('contact')">_</button>
+            <button onclick="maximize('contact')">□</button>
+            <button onclick="closeWindow('contact')">X</button>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2>Contact</h2>
+        <p>Email: <b>ahlansantos.gamedev@gmail.com</b></p>
+        <p>GitHub: <b>github.com/ahlansantos</b></p>
+        <p>Portfolio Repo: <b>github.com/ahlansantos/about-me-portfolio</b></p>
+    </div>
+</div>
+
+<div class="window" id="terminal">
+    <div class="title-bar" onmousedown="drag(event,'terminal')">
+        <span>Terminal.sh</span>
+        <div class="controls">
+            <button onclick="minimize('terminal')">_</button>
+            <button onclick="maximize('terminal')">□</button>
+            <button onclick="closeWindow('terminal')">X</button>
+        </div>
+    </div>
+
+    <div class="terminal">
+        <div id="terminal-output"></div>
+        <span>X/pelk:~$ </span>
+        <input id="termInput" autocomplete="off" onkeydown="terminalCommand(event)">
+    </div>
+</div>
+
+<div id="taskbar">
+    <div id="task-items"></div>
+    <div id="clock"></div>
+</div>
+
+<audio id="bootSound" src="sound/startup.mp3"></audio>
+
+<script src="js/simple.js"></script>
+</body>
+</html>
